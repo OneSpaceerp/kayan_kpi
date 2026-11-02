@@ -1,0 +1,22 @@
+{
+ "aggregate_function_based_on": "",
+ "creation": "2026-11-02 10:00:00.000000",
+ "docstatus": 0,
+ "doctype": "Number Card",
+ "document_type": "Quotation",
+ "dynamic_filters_json": "[]",
+ "filters_json": "[[\"Quotation\", \"docstatus\", \"=\", 1], [\"Quotation\", \"kpi_within_sla\", \"=\", 0], [\"Quotation\", \"kpi_ready_on\", \"Timespan\", \"this quarter\"]]",
+ "function": "Count",
+ "idx": 0,
+ "is_public": 1,
+ "is_standard": 1,
+ "label": "Quotations Late on SLA",
+ "modified": "2026-11-02 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Kayan KPI",
+ "name": "Quotations Late on SLA",
+ "owner": "Administrator",
+ "show_percentage_stats": 1,
+ "stats_time_interval": "Monthly",
+ "type": "Document Type"
+}

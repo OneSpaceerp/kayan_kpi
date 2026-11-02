@@ -1,0 +1,504 @@
+{
+ "actions": [],
+ "creation": "2026-11-02 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "general_tab",
+  "general_section",
+  "crm_source",
+  "company",
+  "holiday_list",
+  "column_break_gen",
+  "quotation_credit_rule",
+  "auto_assign_quotation_engineer",
+  "require_engineer_on_quotation",
+  "scoring_section",
+  "allow_over_achievement",
+  "max_achievement_percent",
+  "column_break_scoring",
+  "no_data_rule",
+  "recalculate_daily",
+  "application_tab",
+  "tat_section",
+  "sla_working_days",
+  "query_reply_hours",
+  "target_client_rating",
+  "column_break_tat",
+  "selection_accuracy_scope",
+  "review_sample_percent",
+  "paperwork_section",
+  "block_submit_without_documents",
+  "require_datasheet",
+  "require_calculation",
+  "column_break_paperwork",
+  "draft_age_days",
+  "sales_tab",
+  "sales_section",
+  "sales_basis",
+  "sales_target_source",
+  "column_break_sales",
+  "repeat_client_lookback_months",
+  "in_hand_section",
+  "in_hand_basis",
+  "column_break_in_hand",
+  "min_advance_percent",
+  "cycle_section",
+  "sales_cycle_days",
+  "record_update_hours",
+  "column_break_cycle",
+  "require_event_date_on_stage_change",
+  "stale_deal_days",
+  "competitor_tab",
+  "competitor_section",
+  "competitor_checklist_weight",
+  "column_break_competitor",
+  "competitor_study_min_value",
+  "bonus_tab",
+  "bonus_section",
+  "enable_margin_bonus",
+  "margin_threshold_percent",
+  "margin_basis",
+  "cost_source",
+  "column_break_bonus",
+  "bonus_method",
+  "bonus_points_per_percent",
+  "bonus_fixed_points",
+  "hrms_tab",
+  "hrms_section",
+  "sync_hrms_goals"
+ ],
+ "fields": [
+  {
+   "fieldname": "general_tab",
+   "fieldtype": "Tab Break",
+   "label": "General"
+  },
+  {
+   "fieldname": "general_section",
+   "fieldtype": "Section Break",
+   "label": "General"
+  },
+  {
+   "fieldname": "crm_source",
+   "fieldtype": "Select",
+   "label": "CRM Source",
+   "options": "ERPNext CRM\nFrappe CRM",
+   "default": "ERPNext CRM",
+   "reqd": 1,
+   "description": "Where client requests and deals are recorded. With Frappe CRM, quotations are linked to the CRM Deal through the Customer or Prospect, or by filling KPI CRM Deal on the quotation."
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "holiday_list",
+   "fieldtype": "Link",
+   "label": "Holiday List",
+   "options": "Holiday List",
+   "description": "Weekends and holidays excluded from working-day targets. Leave empty to use the Company's default holiday list."
+  },
+  {
+   "fieldname": "column_break_gen",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "quotation_credit_rule",
+   "fieldtype": "Select",
+   "label": "Quotation Credit Rule",
+   "options": "Primary Engineer Only\nSplit Equally\nFull Credit to Each",
+   "default": "Primary Engineer Only",
+   "reqd": 1,
+   "description": "How a quotation or order handled by more than one engineer of the same role is counted. Split Equally divides it between them (Sales Orders use the Sales Team allocation %)."
+  },
+  {
+   "fieldname": "auto_assign_quotation_engineer",
+   "fieldtype": "Check",
+   "label": "Assign the Quotation Creator Automatically",
+   "default": "1",
+   "description": "When a quotation has no KPI engineer, add the employee linked to the user who created it."
+  },
+  {
+   "fieldname": "require_engineer_on_quotation",
+   "fieldtype": "Check",
+   "label": "Require an Engineer to Submit a Quotation",
+   "default": "1"
+  },
+  {
+   "fieldname": "scoring_section",
+   "fieldtype": "Section Break",
+   "label": "Scoring"
+  },
+  {
+   "fieldname": "allow_over_achievement",
+   "fieldtype": "Check",
+   "label": "Allow Achievement Above 100%",
+   "default": "1"
+  },
+  {
+   "fieldname": "max_achievement_percent",
+   "fieldtype": "Percent",
+   "label": "Maximum Achievement %",
+   "default": "120",
+   "depends_on": "eval:doc.allow_over_achievement",
+   "mandatory_depends_on": "eval:doc.allow_over_achievement",
+   "description": "Each KPI's achievement is capped at this value."
+  },
+  {
+   "fieldname": "column_break_scoring",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "no_data_rule",
+   "fieldtype": "Select",
+   "label": "When a KPI Has No Data",
+   "options": "Exclude and Re-weight\nScore as Zero\nFull Score",
+   "default": "Exclude and Re-weight",
+   "reqd": 1,
+   "description": "Exclude and Re-weight leaves the KPI out and scales the remaining weights back to 100%."
+  },
+  {
+   "fieldname": "recalculate_daily",
+   "fieldtype": "Check",
+   "label": "Recalculate Draft Scorecards Daily",
+   "default": "1"
+  },
+  {
+   "fieldname": "application_tab",
+   "fieldtype": "Tab Break",
+   "label": "Application Engineers"
+  },
+  {
+   "fieldname": "tat_section",
+   "fieldtype": "Section Break",
+   "label": "Turnaround and Queries"
+  },
+  {
+   "fieldname": "sla_working_days",
+   "fieldtype": "Int",
+   "label": "Quotation SLA (Working Days)",
+   "default": "3",
+   "reqd": 1,
+   "description": "Standard inquiries must have a ready quotation within this many working days of the client request. Complex inquiries use the due date agreed with the manager."
+  },
+  {
+   "fieldname": "query_reply_hours",
+   "fieldtype": "Float",
+   "label": "Client Query Reply Target (Hours)",
+   "default": "24",
+   "reqd": 1
+  },
+  {
+   "fieldname": "target_client_rating",
+   "fieldtype": "Float",
+   "label": "Target Client Rating (out of 5)",
+   "default": "4.5",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_tat",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "selection_accuracy_scope",
+   "fieldtype": "Select",
+   "label": "Selection Accuracy and Standards Scope",
+   "options": "Ordered Quotations Only\nAll Reviewed Quotations",
+   "default": "Ordered Quotations Only",
+   "reqd": 1,
+   "description": "Ordered Quotations Only counts reviews of quotations that became orders (in-hand projects)."
+  },
+  {
+   "fieldname": "review_sample_percent",
+   "fieldtype": "Percent",
+   "label": "Random Review Sample %",
+   "default": "10",
+   "description": "Each week, this share of last week's submitted quotations without a Technical Review is assigned to the KPI Managers for review."
+  },
+  {
+   "fieldname": "paperwork_section",
+   "fieldtype": "Section Break",
+   "label": "Paperwork"
+  },
+  {
+   "fieldname": "block_submit_without_documents",
+   "fieldtype": "Check",
+   "label": "Block Quotation Submit Without Required Documents",
+   "default": "1"
+  },
+  {
+   "fieldname": "require_datasheet",
+   "fieldtype": "Check",
+   "label": "Datasheet Required",
+   "default": "1"
+  },
+  {
+   "fieldname": "require_calculation",
+   "fieldtype": "Check",
+   "label": "Calculation Required",
+   "default": "1"
+  },
+  {
+   "fieldname": "column_break_paperwork",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "draft_age_days",
+   "fieldtype": "Int",
+   "label": "Draft Quotation Age Limit (Days)",
+   "default": "7",
+   "description": "Draft quotations older than this count as incomplete paperwork."
+  },
+  {
+   "fieldname": "sales_tab",
+   "fieldtype": "Tab Break",
+   "label": "Sales Engineers"
+  },
+  {
+   "fieldname": "sales_section",
+   "fieldtype": "Section Break",
+   "label": "Sales Target"
+  },
+  {
+   "fieldname": "sales_basis",
+   "fieldtype": "Select",
+   "label": "Sales Achievement Based On",
+   "options": "Sales Order\nSales Invoice",
+   "default": "Sales Order",
+   "reqd": 1,
+   "description": "Used for the sales target, repeat client revenue, new clients and the margin bonus."
+  },
+  {
+   "fieldname": "sales_target_source",
+   "fieldtype": "Select",
+   "label": "Sales Target Source",
+   "options": "Sales Person Targets\nKPI Period Targets",
+   "default": "Sales Person Targets",
+   "reqd": 1,
+   "description": "Sales Person Targets uses the Targets table on each Sales Person (with its Monthly Distribution)."
+  },
+  {
+   "fieldname": "column_break_sales",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "repeat_client_lookback_months",
+   "fieldtype": "Int",
+   "label": "Repeat Client Look-back (Months)",
+   "default": "0",
+   "description": "A repeat client has ordered before the period started. 0 means at any time before; 12 means within the previous 12 months."
+  },
+  {
+   "fieldname": "in_hand_section",
+   "fieldtype": "Section Break",
+   "label": "Hit Rate (Paid Orders In-hand)"
+  },
+  {
+   "fieldname": "in_hand_basis",
+   "fieldtype": "Select",
+   "label": "Order Counts as In-hand When",
+   "options": "Any of Them\nAdvance Payment\nCustomer PO",
+   "default": "Any of Them",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_in_hand",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "min_advance_percent",
+   "fieldtype": "Percent",
+   "label": "Minimum Advance %",
+   "default": "0",
+   "description": "Share of the order's grand total that must be paid in advance. 0 means any advance payment."
+  },
+  {
+   "fieldname": "cycle_section",
+   "fieldtype": "Section Break",
+   "label": "Cycle Time and Records"
+  },
+  {
+   "fieldname": "sales_cycle_days",
+   "fieldtype": "Int",
+   "label": "Sales Cycle Target (Days)",
+   "default": "60",
+   "reqd": 1
+  },
+  {
+   "fieldname": "record_update_hours",
+   "fieldtype": "Float",
+   "label": "Record Update Target (Hours)",
+   "default": "48",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_cycle",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "require_event_date_on_stage_change",
+   "fieldtype": "Check",
+   "label": "Require 'Change Happened On' When an Opportunity Stage Changes",
+   "default": "1"
+  },
+  {
+   "fieldname": "stale_deal_days",
+   "fieldtype": "Int",
+   "label": "Stale Deal Warning (Days)",
+   "default": "14",
+   "description": "Open opportunities or deals with no update for longer than this appear in the Data Quality Audit."
+  },
+  {
+   "fieldname": "competitor_tab",
+   "fieldtype": "Tab Break",
+   "label": "Competitor Study"
+  },
+  {
+   "fieldname": "competitor_section",
+   "fieldtype": "Section Break",
+   "label": "Competitor Study"
+  },
+  {
+   "fieldname": "competitor_checklist_weight",
+   "fieldtype": "Percent",
+   "label": "Checklist Weight %",
+   "default": "60",
+   "description": "A study's score is the checklist % at this weight plus the manager's rating for the rest."
+  },
+  {
+   "fieldname": "column_break_competitor",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "competitor_study_min_value",
+   "fieldtype": "Currency",
+   "label": "Study Required From Quotation Value",
+   "default": "0",
+   "description": "Quotations below this net total (company currency) do not need a competitor study. 0 means every quotation."
+  },
+  {
+   "fieldname": "bonus_tab",
+   "fieldtype": "Tab Break",
+   "label": "Margin Bonus"
+  },
+  {
+   "fieldname": "bonus_section",
+   "fieldtype": "Section Break",
+   "label": "Profit Margin Bonus"
+  },
+  {
+   "fieldname": "enable_margin_bonus",
+   "fieldtype": "Check",
+   "label": "Enable Margin Bonus",
+   "default": "1"
+  },
+  {
+   "fieldname": "margin_threshold_percent",
+   "fieldtype": "Percent",
+   "label": "Margin Threshold %",
+   "default": "50",
+   "depends_on": "eval:doc.enable_margin_bonus"
+  },
+  {
+   "fieldname": "margin_basis",
+   "fieldtype": "Select",
+   "label": "Margin Basis",
+   "options": "Margin on Selling Price\nMarkup on Cost",
+   "default": "Margin on Selling Price",
+   "depends_on": "eval:doc.enable_margin_bonus",
+   "description": "Margin on Selling Price = (net - cost) / net. Markup on Cost = (net - cost) / cost."
+  },
+  {
+   "fieldname": "cost_source",
+   "fieldtype": "Select",
+   "label": "Cost Source",
+   "options": "Estimated Cost, else Valuation Rate\nValuation Rate Only\nEstimated Cost Only",
+   "default": "Estimated Cost, else Valuation Rate",
+   "depends_on": "eval:doc.enable_margin_bonus"
+  },
+  {
+   "fieldname": "column_break_bonus",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bonus_method",
+   "fieldtype": "Select",
+   "label": "Bonus Points Method",
+   "options": "Points per % Above Threshold\nPoints per % of Final Margin\nFixed Points per Deal",
+   "default": "Points per % Above Threshold",
+   "depends_on": "eval:doc.enable_margin_bonus"
+  },
+  {
+   "fieldname": "bonus_points_per_percent",
+   "fieldtype": "Float",
+   "label": "Points per %",
+   "default": "1",
+   "depends_on": "eval:doc.enable_margin_bonus && doc.bonus_method != 'Fixed Points per Deal'"
+  },
+  {
+   "fieldname": "bonus_fixed_points",
+   "fieldtype": "Float",
+   "label": "Points per Deal",
+   "default": "0",
+   "depends_on": "eval:doc.enable_margin_bonus && doc.bonus_method == 'Fixed Points per Deal'"
+  },
+  {
+   "fieldname": "hrms_tab",
+   "fieldtype": "Tab Break",
+   "label": "HRMS"
+  },
+  {
+   "fieldname": "hrms_section",
+   "fieldtype": "Section Break",
+   "label": "Appraisal"
+  },
+  {
+   "fieldname": "sync_hrms_goals",
+   "fieldtype": "Check",
+   "label": "Sync Approved Scorecards to HRMS Goals",
+   "default": "0",
+   "description": "On approval, each KPI with a KRA becomes a Goal for the employee in the period's Appraisal Cycle, with progress set to the achievement (HRMS caps it at 100%)."
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-02 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Kayan KPI",
+ "name": "Kayan KPI Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1
+  },
+  {
+   "role": "KPI Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "issingle": 1,
+ "track_changes": 1
+}

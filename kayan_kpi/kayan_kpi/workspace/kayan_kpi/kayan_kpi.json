@@ -1,0 +1,118 @@
+{
+ "app": "kayan_kpi",
+ "charts": [
+  {
+   "chart_name": "Quotations Ready to Send",
+   "label": "Quotations Ready to Send"
+  }
+ ],
+ "content": "[{\"id\": \"kkpichart1\", \"type\": \"chart\", \"data\": {\"chart_name\": \"Quotations Ready to Send\", \"col\": 12}}, {\"id\": \"kkpicard1\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Quotations Ready This Quarter\", \"col\": 3}}, {\"id\": \"kkpicard2\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Quotations Late on SLA\", \"col\": 3}}, {\"id\": \"kkpicard3\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Open Technical Queries\", \"col\": 3}}, {\"id\": \"kkpicard4\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Scorecards Awaiting Approval\", \"col\": 3}}, {\"id\": \"kkpispace1\", \"type\": \"spacer\", \"data\": {\"col\": 12}}, {\"id\": \"kkpihead01\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Quick Access</b></span>\", \"col\": 12}}, {\"id\": \"kkpishort1\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"KPI Scorecard\", \"col\": 3}}, {\"id\": \"kkpishort2\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"KPI Scorecard Summary\", \"col\": 3}}, {\"id\": \"kkpishort3\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"KPI Data Quality Audit\", \"col\": 3}}, {\"id\": \"kkpishort4\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Quotation Turnaround\", \"col\": 3}}, {\"id\": \"kkpishort5\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Technical Review\", \"col\": 3}}, {\"id\": \"kkpishort6\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Technical Query\", \"col\": 3}}, {\"id\": \"kkpishort7\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Competitor Study\", \"col\": 3}}, {\"id\": \"kkpishort8\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Kayan KPI Settings\", \"col\": 3}}]",
+ "creation": "2026-11-02 10:00:00.000000",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "gauge",
+ "idx": 0,
+ "indicator_color": "red",
+ "is_hidden": 0,
+ "label": "Kayan KPI",
+ "links": [],
+ "modified": "2026-11-02 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Kayan KPI",
+ "name": "Kayan KPI",
+ "number_cards": [
+  {
+   "label": "Quotations Ready This Quarter",
+   "number_card_name": "Quotations Ready This Quarter"
+  },
+  {
+   "label": "Quotations Late on SLA",
+   "number_card_name": "Quotations Late on SLA"
+  },
+  {
+   "label": "Open Technical Queries",
+   "number_card_name": "Open Technical Queries"
+  },
+  {
+   "label": "Scorecards Awaiting Approval",
+   "number_card_name": "Scorecards Awaiting Approval"
+  }
+ ],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 31.0,
+ "shortcuts": [
+  {
+   "label": "KPI Scorecard",
+   "type": "DocType",
+   "link_to": "KPI Scorecard",
+   "color": "Red",
+   "doc_view": "",
+   "stats_filter": ""
+  },
+  {
+   "label": "KPI Scorecard Summary",
+   "type": "Report",
+   "link_to": "KPI Scorecard Summary",
+   "color": "Grey",
+   "doc_view": "",
+   "stats_filter": ""
+  },
+  {
+   "label": "KPI Data Quality Audit",
+   "type": "Report",
+   "link_to": "KPI Data Quality Audit",
+   "color": "Orange",
+   "doc_view": "",
+   "stats_filter": ""
+  },
+  {
+   "label": "Quotation Turnaround",
+   "type": "Report",
+   "link_to": "Quotation Turnaround",
+   "color": "Grey",
+   "doc_view": "",
+   "stats_filter": ""
+  },
+  {
+   "label": "Technical Review",
+   "type": "DocType",
+   "link_to": "Technical Review",
+   "color": "Grey",
+   "doc_view": "",
+   "stats_filter": ""
+  },
+  {
+   "label": "Technical Query",
+   "type": "DocType",
+   "link_to": "Technical Query",
+   "color": "Grey",
+   "doc_view": "",
+   "stats_filter": ""
+  },
+  {
+   "label": "Competitor Study",
+   "type": "DocType",
+   "link_to": "Competitor Study",
+   "color": "Grey",
+   "doc_view": "",
+   "stats_filter": ""
+  },
+  {
+   "label": "Kayan KPI Settings",
+   "type": "DocType",
+   "link_to": "Kayan KPI Settings",
+   "color": "Grey",
+   "doc_view": "",
+   "stats_filter": ""
+  }
+ ],
+ "title": "Kayan KPI",
+ "type": "Workspace"
+}

@@ -1,0 +1,235 @@
+{
+ "actions": [],
+ "creation": "2026-11-02 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "subject",
+  "employee",
+  "employee_name",
+  "customer",
+  "column_break_1",
+  "status",
+  "reference_doctype",
+  "reference_name",
+  "timing_section",
+  "received_on",
+  "first_reply_on",
+  "column_break_2",
+  "reply_hours",
+  "replied_on_time",
+  "question_section",
+  "question",
+  "answer",
+  "feedback_section",
+  "client_rating",
+  "rating_source",
+  "column_break_3",
+  "feedback_notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "TQ-.YYYY.-",
+   "default": "TQ-.YYYY.-",
+   "hidden": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "subject",
+   "fieldtype": "Data",
+   "label": "Subject",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "label": "Application Engineer",
+   "options": "Employee",
+   "reqd": 1,
+   "in_standard_filter": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Engineer Name",
+   "fetch_from": "employee.employee_name",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer",
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Open\nReplied\nClosed",
+   "default": "Open",
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "reference_doctype",
+   "fieldtype": "Link",
+   "label": "Reference Type",
+   "options": "DocType",
+   "description": "Opportunity, Quotation or CRM Deal"
+  },
+  {
+   "fieldname": "reference_name",
+   "fieldtype": "Dynamic Link",
+   "label": "Reference",
+   "options": "reference_doctype"
+  },
+  {
+   "fieldname": "timing_section",
+   "fieldtype": "Section Break",
+   "label": "Response Time"
+  },
+  {
+   "fieldname": "received_on",
+   "fieldtype": "Datetime",
+   "label": "Received On",
+   "reqd": 1,
+   "default": "Now"
+  },
+  {
+   "fieldname": "first_reply_on",
+   "fieldtype": "Datetime",
+   "label": "First Reply On",
+   "description": "Set by the Mark as Replied button or the first email sent from this record."
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "reply_hours",
+   "fieldtype": "Float",
+   "label": "Reply Time (Hours)",
+   "read_only": 1,
+   "precision": "2"
+  },
+  {
+   "fieldname": "replied_on_time",
+   "fieldtype": "Check",
+   "label": "Replied On Time",
+   "read_only": 1
+  },
+  {
+   "fieldname": "question_section",
+   "fieldtype": "Section Break",
+   "label": "Question and Answer"
+  },
+  {
+   "fieldname": "question",
+   "fieldtype": "Text Editor",
+   "label": "Question"
+  },
+  {
+   "fieldname": "answer",
+   "fieldtype": "Text Editor",
+   "label": "Answer"
+  },
+  {
+   "fieldname": "feedback_section",
+   "fieldtype": "Section Break",
+   "label": "Client Feedback"
+  },
+  {
+   "fieldname": "client_rating",
+   "fieldtype": "Rating",
+   "label": "Client Rating",
+   "options": "5"
+  },
+  {
+   "fieldname": "rating_source",
+   "fieldtype": "Select",
+   "label": "Rating Source",
+   "options": "\nClient Survey\nManager Feedback\nCRM System",
+   "mandatory_depends_on": "eval:doc.client_rating"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "feedback_notes",
+   "fieldtype": "Small Text",
+   "label": "Feedback Notes"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-02 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Kayan KPI",
+ "name": "Technical Query",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1
+  },
+  {
+   "role": "KPI Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1
+  },
+  {
+   "role": "Application Engineer",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1
+  },
+  {
+   "role": "Sales Engineer",
+   "read": 1,
+   "email": 1,
+   "print": 1,
+   "report": 1,
+   "export": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "autoname": "naming_series:",
+ "track_changes": 1,
+ "title_field": "subject"
+}

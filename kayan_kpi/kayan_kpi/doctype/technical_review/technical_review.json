@@ -1,0 +1,221 @@
+{
+ "actions": [],
+ "creation": "2026-11-02 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "quotation",
+  "customer_name",
+  "quotation_status",
+  "application_engineer",
+  "employee_name",
+  "column_break_1",
+  "review_date",
+  "review_type",
+  "reviewer",
+  "selection_section",
+  "selection_result",
+  "corrections",
+  "column_break_2",
+  "standards_result",
+  "standards_checked",
+  "non_compliance_notes",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "TR-.YYYY.-",
+   "default": "TR-.YYYY.-",
+   "hidden": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "quotation",
+   "fieldtype": "Link",
+   "label": "Quotation",
+   "options": "Quotation",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Customer",
+   "fetch_from": "quotation.customer_name",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "quotation_status",
+   "fieldtype": "Data",
+   "label": "Quotation Status",
+   "fetch_from": "quotation.status",
+   "read_only": 1
+  },
+  {
+   "fieldname": "application_engineer",
+   "fieldtype": "Link",
+   "label": "Application Engineer",
+   "options": "Employee",
+   "in_standard_filter": 1,
+   "description": "Defaults to the quotation's primary Application Engineer."
+  },
+  {
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Engineer Name",
+   "fetch_from": "application_engineer.employee_name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "review_date",
+   "fieldtype": "Date",
+   "label": "Review Date",
+   "default": "Today",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "review_type",
+   "fieldtype": "Select",
+   "label": "Review Type",
+   "options": "Manager Review\nRandom Sample",
+   "default": "Manager Review",
+   "reqd": 1
+  },
+  {
+   "fieldname": "reviewer",
+   "fieldtype": "Link",
+   "label": "Reviewer",
+   "options": "User",
+   "default": "__user",
+   "reqd": 1
+  },
+  {
+   "fieldname": "selection_section",
+   "fieldtype": "Section Break",
+   "label": "Pick the Right Equipment (Selection Accuracy)"
+  },
+  {
+   "fieldname": "selection_result",
+   "fieldtype": "Select",
+   "label": "Selection Result",
+   "options": "\nPassed - No Correction\nCorrection Needed",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "corrections",
+   "fieldtype": "Small Text",
+   "label": "Corrections Made",
+   "depends_on": "eval:doc.selection_result=='Correction Needed'",
+   "mandatory_depends_on": "eval:doc.selection_result=='Correction Needed'"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "standards_result",
+   "fieldtype": "Select",
+   "label": "Standards Result",
+   "options": "\nCompliant\nNot Compliant",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "standards_checked",
+   "fieldtype": "Small Text",
+   "label": "Standards / Codes Checked"
+  },
+  {
+   "fieldname": "non_compliance_notes",
+   "fieldtype": "Small Text",
+   "label": "Non-compliance Notes",
+   "depends_on": "eval:doc.standards_result=='Not Compliant'",
+   "mandatory_depends_on": "eval:doc.standards_result=='Not Compliant'"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "options": "Technical Review",
+   "no_copy": 1,
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-02 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Kayan KPI",
+ "name": "Technical Review",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1
+  },
+  {
+   "role": "KPI Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1
+  },
+  {
+   "role": "Application Engineer",
+   "read": 1,
+   "email": 1,
+   "print": 1,
+   "report": 1,
+   "export": 1
+  },
+  {
+   "role": "Sales Engineer",
+   "read": 1,
+   "email": 1,
+   "print": 1,
+   "report": 1,
+   "export": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "autoname": "naming_series:",
+ "is_submittable": 1,
+ "track_changes": 1,
+ "title_field": "quotation"
+}

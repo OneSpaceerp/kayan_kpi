@@ -1,0 +1,19 @@
+{
+ "app": "kayan_kpi",
+ "creation": "2026-11-02 10:00:00.000000",
+ "docstatus": 0,
+ "doctype": "Desktop Icon",
+ "hidden": 0,
+ "icon_type": "App",
+ "idx": 30,
+ "label": "Kayan KPI",
+ "link": "/desk/kayan-kpi",
+ "link_type": "External",
+ "logo_url": "/assets/kayan_kpi/images/kayan-kpi-logo.png",
+ "modified": "2026-11-02 10:00:00.000000",
+ "modified_by": "Administrator",
+ "name": "Kayan KPI",
+ "owner": "Administrator",
+ "roles": [],
+ "standard": 1
+}

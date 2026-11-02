@@ -1,0 +1,78 @@
+{
+ "actions": [],
+ "creation": "2026-11-02 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "competitor",
+  "offer_price",
+  "pricing_position",
+  "technical_specifications",
+  "column_break_1",
+  "strengths",
+  "weaknesses"
+ ],
+ "fields": [
+  {
+   "fieldname": "competitor",
+   "fieldtype": "Link",
+   "label": "Competitor",
+   "options": "Competitor",
+   "reqd": 1,
+   "in_list_view": 1,
+   "columns": 2
+  },
+  {
+   "fieldname": "offer_price",
+   "fieldtype": "Currency",
+   "label": "Offer Price",
+   "in_list_view": 1,
+   "columns": 2
+  },
+  {
+   "fieldname": "pricing_position",
+   "fieldtype": "Select",
+   "label": "Price vs Ours",
+   "options": "\nLower\nSimilar\nHigher",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "technical_specifications",
+   "fieldtype": "Small Text",
+   "label": "Technical Specifications",
+   "in_list_view": 1,
+   "columns": 2
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "strengths",
+   "fieldtype": "Small Text",
+   "label": "Strengths",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "weaknesses",
+   "fieldtype": "Small Text",
+   "label": "Weaknesses",
+   "in_list_view": 1,
+   "columns": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-02 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Kayan KPI",
+ "name": "Competitor Study Entry",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "istable": 1
+}

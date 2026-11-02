@@ -1,0 +1,121 @@
+{
+ "actions": [],
+ "creation": "2026-11-02 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "goal",
+  "sub_goal",
+  "metric",
+  "target_value",
+  "uom",
+  "column_break_1",
+  "weight",
+  "scoring_method",
+  "kra",
+  "description_section",
+  "target_description",
+  "column_break_2",
+  "how_checked"
+ ],
+ "fields": [
+  {
+   "fieldname": "goal",
+   "fieldtype": "Data",
+   "label": "Goal",
+   "reqd": 1,
+   "in_list_view": 1,
+   "columns": 2
+  },
+  {
+   "fieldname": "sub_goal",
+   "fieldtype": "Data",
+   "label": "Sub-goal"
+  },
+  {
+   "fieldname": "metric",
+   "fieldtype": "Select",
+   "label": "Measured By",
+   "options": "Quote Turnaround (SLA)\nSelection Accuracy\nStandards Compliance\nClient Query Service\nQuotation Win Rate\nPaperwork Complete\nSales Target Achievement\nQuotation Hit Rate\nNew Clients\nSales Cycle Time\nRepeat Client Revenue\nRecords Up To Date\nCompetitor Study\nManual Entry",
+   "reqd": 1,
+   "in_list_view": 1,
+   "columns": 2
+  },
+  {
+   "fieldname": "target_value",
+   "fieldtype": "Float",
+   "label": "Target",
+   "reqd": 1,
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "uom",
+   "fieldtype": "Select",
+   "label": "Unit",
+   "options": "%\nCount\nRating\nPoints",
+   "default": "%",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "weight",
+   "fieldtype": "Percent",
+   "label": "Weight",
+   "reqd": 1,
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "scoring_method",
+   "fieldtype": "Select",
+   "label": "Scoring",
+   "options": "Linear\nPass/Fail",
+   "default": "Linear",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "kra",
+   "fieldtype": "Link",
+   "label": "KRA (HRMS)",
+   "options": "KRA"
+  },
+  {
+   "fieldname": "description_section",
+   "fieldtype": "Section Break",
+   "label": "Description"
+  },
+  {
+   "fieldname": "target_description",
+   "fieldtype": "Small Text",
+   "label": "Target Description"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "how_checked",
+   "fieldtype": "Small Text",
+   "label": "How It's Checked"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-02 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Kayan KPI",
+ "name": "KPI Template Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "istable": 1,
+ "editable_grid": 1
+}

@@ -1,0 +1,295 @@
+{
+ "actions": [],
+ "creation": "2026-11-02 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "employee",
+  "employee_name",
+  "kpi_role",
+  "column_break_1",
+  "quotation",
+  "customer_name",
+  "opportunity",
+  "project",
+  "study_date",
+  "competitors_section",
+  "competitors",
+  "recommendation_section",
+  "recommendation",
+  "review_section",
+  "chk_competitors_identified",
+  "chk_commercial_data",
+  "chk_technical_comparison",
+  "chk_recommendation",
+  "submitted_on_time",
+  "column_break_2",
+  "manager_rating",
+  "review_notes",
+  "study_score",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "CS-.YYYY.-",
+   "default": "CS-.YYYY.-",
+   "hidden": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "label": "Prepared By",
+   "options": "Employee",
+   "reqd": 1,
+   "in_standard_filter": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Prepared By Name",
+   "fetch_from": "employee.employee_name",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "kpi_role",
+   "fieldtype": "Select",
+   "label": "KPI Role",
+   "options": "Application Engineer\nSales Engineer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "quotation",
+   "fieldtype": "Link",
+   "label": "Quotation",
+   "options": "Quotation",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Customer",
+   "fetch_from": "quotation.customer_name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "opportunity",
+   "fieldtype": "Link",
+   "label": "Opportunity",
+   "options": "Opportunity",
+   "fetch_from": "quotation.opportunity",
+   "fetch_if_empty": 1
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "label": "Project",
+   "options": "Project"
+  },
+  {
+   "fieldname": "study_date",
+   "fieldtype": "Date",
+   "label": "Study Date",
+   "default": "Today",
+   "reqd": 1
+  },
+  {
+   "fieldname": "competitors_section",
+   "fieldtype": "Section Break",
+   "label": "Competitors"
+  },
+  {
+   "fieldname": "competitors",
+   "fieldtype": "Table",
+   "label": "Competitors",
+   "options": "Competitor Study Entry",
+   "reqd": 1
+  },
+  {
+   "fieldname": "recommendation_section",
+   "fieldtype": "Section Break",
+   "label": "Recommendation to Win the Order"
+  },
+  {
+   "fieldname": "recommendation",
+   "fieldtype": "Text Editor",
+   "label": "Recommendation",
+   "reqd": 1
+  },
+  {
+   "fieldname": "review_section",
+   "fieldtype": "Section Break",
+   "label": "Manager Review"
+  },
+  {
+   "fieldname": "chk_competitors_identified",
+   "fieldtype": "Check",
+   "label": "Competitors Identified",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "chk_commercial_data",
+   "fieldtype": "Check",
+   "label": "Commercial Data",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "chk_technical_comparison",
+   "fieldtype": "Check",
+   "label": "Technical Comparison",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "chk_recommendation",
+   "fieldtype": "Check",
+   "label": "Recommendation",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "submitted_on_time",
+   "fieldtype": "Check",
+   "label": "Shared With the Quotation and On Time",
+   "read_only": 1,
+   "description": "Set automatically: the study was created before the quotation was submitted."
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "manager_rating",
+   "fieldtype": "Rating",
+   "label": "Manager Rating",
+   "options": "5",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "review_notes",
+   "fieldtype": "Small Text",
+   "label": "Review Notes",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "study_score",
+   "fieldtype": "Percent",
+   "label": "Study Score",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "options": "Competitor Study",
+   "no_copy": 1,
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-02 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Kayan KPI",
+ "name": "Competitor Study",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "permlevel": 1,
+   "write": 1
+  },
+  {
+   "role": "KPI Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1
+  },
+  {
+   "role": "KPI Manager",
+   "read": 1,
+   "permlevel": 1,
+   "write": 1
+  },
+  {
+   "role": "Application Engineer",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1
+  },
+  {
+   "role": "Application Engineer",
+   "read": 1,
+   "permlevel": 1
+  },
+  {
+   "role": "Sales Engineer",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1
+  },
+  {
+   "role": "Sales Engineer",
+   "read": 1,
+   "permlevel": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "autoname": "naming_series:",
+ "is_submittable": 1,
+ "track_changes": 1,
+ "title_field": "customer_name"
+}

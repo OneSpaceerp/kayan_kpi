@@ -1,0 +1,200 @@
+{
+ "actions": [],
+ "creation": "2026-11-02 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "goal",
+  "metric",
+  "target_value",
+  "actual_value",
+  "uom",
+  "scoring_method",
+  "column_break_1",
+  "achievement_percent",
+  "weight",
+  "weighted_score",
+  "has_data",
+  "data_source",
+  "calc_section",
+  "numerator",
+  "denominator",
+  "column_break_2",
+  "details",
+  "view_evidence",
+  "override_section",
+  "override",
+  "override_actual",
+  "column_break_3",
+  "override_reason",
+  "kra"
+ ],
+ "fields": [
+  {
+   "fieldname": "goal",
+   "fieldtype": "Data",
+   "label": "Goal",
+   "read_only": 1,
+   "in_list_view": 1,
+   "columns": 2
+  },
+  {
+   "fieldname": "metric",
+   "fieldtype": "Data",
+   "label": "Measured By",
+   "read_only": 1
+  },
+  {
+   "fieldname": "target_value",
+   "fieldtype": "Float",
+   "label": "Target",
+   "read_only": 1,
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "actual_value",
+   "fieldtype": "Float",
+   "label": "Actual",
+   "read_only": 1,
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "uom",
+   "fieldtype": "Data",
+   "label": "Unit",
+   "read_only": 1
+  },
+  {
+   "fieldname": "scoring_method",
+   "fieldtype": "Data",
+   "label": "Scoring",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "achievement_percent",
+   "fieldtype": "Percent",
+   "label": "Achievement",
+   "read_only": 1,
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "weight",
+   "fieldtype": "Percent",
+   "label": "Weight",
+   "read_only": 1,
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "weighted_score",
+   "fieldtype": "Float",
+   "label": "Score",
+   "read_only": 1,
+   "in_list_view": 1,
+   "columns": 1,
+   "precision": "2"
+  },
+  {
+   "fieldname": "has_data",
+   "fieldtype": "Check",
+   "label": "Has Data",
+   "read_only": 1
+  },
+  {
+   "fieldname": "data_source",
+   "fieldtype": "Select",
+   "label": "Data Source",
+   "options": "Automatic\nManual\nManual (Backfill)",
+   "default": "Automatic",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "calc_section",
+   "fieldtype": "Section Break",
+   "label": "Calculation"
+  },
+  {
+   "fieldname": "numerator",
+   "fieldtype": "Float",
+   "label": "Counted / Achieved",
+   "read_only": 1
+  },
+  {
+   "fieldname": "denominator",
+   "fieldtype": "Float",
+   "label": "Out Of",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "details",
+   "fieldtype": "Small Text",
+   "label": "Details",
+   "read_only": 1
+  },
+  {
+   "fieldname": "view_evidence",
+   "fieldtype": "Button",
+   "label": "View Evidence"
+  },
+  {
+   "fieldname": "override_section",
+   "fieldtype": "Section Break",
+   "label": "Manager Entry or Override"
+  },
+  {
+   "fieldname": "override",
+   "fieldtype": "Check",
+   "label": "Override Actual",
+   "description": "For Manual Entry KPIs and Q3 backfill, enter the actual here."
+  },
+  {
+   "fieldname": "override_actual",
+   "fieldtype": "Float",
+   "label": "Actual (Entered)",
+   "depends_on": "eval:doc.override",
+   "mandatory_depends_on": "eval:doc.override"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "override_reason",
+   "fieldtype": "Small Text",
+   "label": "Reason",
+   "depends_on": "eval:doc.override",
+   "mandatory_depends_on": "eval:doc.override"
+  },
+  {
+   "fieldname": "kra",
+   "fieldtype": "Link",
+   "label": "KRA",
+   "options": "KRA",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-02 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Kayan KPI",
+ "name": "KPI Scorecard Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "istable": 1
+}
